@@ -3,8 +3,8 @@ import numpy as np
 # delta - Efficacy of the vaccine on the population
 #           if the effect
 """ 
-    if the affect of the vaccine is 100% then delta is 1 and the experssion turns to 0- no one new is infected
-    if rhe affect of the vaccine is 0% then delta is 0 and the expression turn to 1-  meaningless (the equation is as before)
+    if the affect of the vaccine is 100% then delta is 1 and the experssion turns to 0 - no one new is infected
+    if rhe affect of the vaccine is 0% then delta is 0 and the expression turn to 1 - meaningless (the equation is as before)
 """
 
 
