@@ -5,7 +5,7 @@ from matplotlib.ticker import LinearLocator
 # Arrays x, y and z for data plot visualization
 
 
-from malariaModels.rossModel import reproductive_number
+from malariaModels.RossModel import reproductive_number
 
 mu2 = np.arange(0.5, 0.096, -0.004)
 a = np.arange(0.01, 0.0302, 0.0002)
