@@ -25,7 +25,7 @@ def macdonald_model(init_vals, params, t):
     return np.stack([Ih, Em, Im]).T
 
 
-def reproductive_number(params):
+def macdonald_reproductive_number(params):
     a, b, c, m, r, mu2, tau_m = params
     e2 = np.e ** (-mu2 * tau_m)
     R0 = (m * (a ** 2) * b * c * e2) / (r * mu2)
