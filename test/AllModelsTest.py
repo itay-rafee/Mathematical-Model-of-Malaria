@@ -55,7 +55,7 @@ plt.xlabel('time')
 plt.ylabel('Prediction')
 
 # giving a title to my graph
-plt.title('Ross model')
+# plt.title('Mathematical models of malaria')
 
 # function to show the plot
 plt.show()
