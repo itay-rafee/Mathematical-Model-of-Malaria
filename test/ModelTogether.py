@@ -3,8 +3,8 @@ from malariaModels.MacdonaldModel import macdonald_model
 from malariaModels.RossModel import ross_model
 import matplotlib.pyplot as plt
 
-t = [0, 1, 100, 150, 200, 250]
-a, b, c, m, r, mu1, mu2, tau_m, tau_h = 0.2, 0.5, 0.5, 20, 0.01, 0.017/365, 0.12, 10, 21
+t = 250
+a, b, c, m, r, mu1, mu2, tau_m, tau_h = 0.2, 0.5, 0.5, 20, 0.01, 0.017, 0.12, 10, 21
 
 params = a, b, c, m, r, mu2
 init_val = 0.0015, 0

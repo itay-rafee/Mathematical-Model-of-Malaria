@@ -7,18 +7,17 @@ def macdonald_model(init_vals, params, t):
     Em = [Em_0]
     Im = [Im_0]
     a, b, c, m, r, mu2, tau_m = params
-    dt = t[1] - t[0]
     e2 = np.e ** (-mu2 * tau_m)
-    for _ in range(250):
-        t = _ - tau_m
-        next_Ih = Ih[-1] + (a * b * m * Im[-1] * (1 - Ih[-1]) - (r * Ih[-1])) * dt
-        if t < 0:
-            next_Em = Em[-1] + (a * c * Ih[-1] * (1 - Em[-1] - Im[-1]) - mu2 * Em[-1]) * dt
-            next_Im = Im[-1] + (- mu2 * Im[-1]) * dt
+    for time_now in range(t):
+        tm = time_now - tau_m
+        next_Ih = Ih[-1] + (a * b * m * Im[-1] * (1 - Ih[-1]) - (r * Ih[-1]))
+        if tm < 0:
+            next_Em = Em[-1] + (a * c * Ih[-1] * (1 - Em[-1] - Im[-1]) - mu2 * Em[-1])
+            next_Im = Im[-1] + (- mu2 * Im[-1])
         else:
             next_Em = Em[-1] + (a * c * Ih[-1] * (1 - Em[-1] - Im[-1]) -
-                                a * c * Ih[t] * (1 - Em[t] - Im[t]) * e2 - mu2 * Em[-1]) * dt
-            next_Im = Im[-1] + (a * c * Ih[t] * (1 - Em[t] - Im[t]) * e2 - mu2 * Im[-1]) * dt
+                                a * c * Ih[tm] * (1 - Em[tm] - Im[tm]) * e2 - mu2 * Em[-1])
+            next_Im = Im[-1] + (a * c * Ih[tm] * (1 - Em[tm] - Im[tm]) * e2 - mu2 * Im[-1])
         Ih.append(next_Ih)
         Em.append(next_Em)
         Im.append(next_Im)

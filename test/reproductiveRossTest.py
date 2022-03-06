@@ -1,8 +1,5 @@
 import numpy as np  # For mathematics, and making arrays
 import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
-from matplotlib.ticker import LinearLocator
-# Arrays x, y and z for data plot visualization
 from malariaModels.AndersonAndMayModel import anderson_and_may_reproductive_number
 from malariaModels.MacdonaldModel import macdonald_reproductive_number
 from malariaModels.RossModel import reproductive_number
@@ -11,7 +8,7 @@ mu2 = np.arange(0.5, 0.096, -0.004)
 a = np.arange(0.01, 0.0302, 0.0002)
 # meshgrid makes a retangular grid out of two 1-D arrays. 
 mu2, a = np.meshgrid(mu2, a)
-b, c, m, r, mu1, tau_m, tau_h = 0.5, 0.5, 20, 0.01, 0.017/365, 10, 21
+b, c, m, r, mu1, tau_m, tau_h = 0.5, 0.5, 20, 0.01, 0.017, 10, 21
 RR_R0 = []
 for i in range(len(a)):
     params = a[i], b, c, m, r, mu2[i]

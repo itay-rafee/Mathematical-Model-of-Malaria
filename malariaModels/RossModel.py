@@ -6,10 +6,9 @@ def ross_model(init_vals, params, t):
     Ih = [Ih_0]
     Im = [Im_0]
     a, b, c, m, r, mu2 = params
-    dt = t[1] - t[0]
-    for _ in range(250):
-        next_Ih = Ih[-1] + (a * b * m * Im[-1] * (1 - Ih[-1]) - (r * Ih[-1])) * dt
-        next_Im = Im[-1] + (a * c * Ih[-1] * (1 - Im[-1]) - (mu2 * Im[-1])) * dt
+    for time_now in range(t):
+        next_Ih = Ih[-1] + (a * b * m * Im[-1] * (1 - Ih[-1]) - (r * Ih[-1]))
+        next_Im = Im[-1] + (a * c * Ih[-1] * (1 - Im[-1]) - (mu2 * Im[-1]))
         Ih.append(next_Ih)
         Im.append(next_Im)
     return np.stack([Ih, Im]).T
