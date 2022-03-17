@@ -31,8 +31,9 @@ def arnon_model(init_vals, params, m_params, t):
         if p > 0:
             eggs_total = c_total
             for i in range(eta_m):
-                f[t - i] = g[t - i] - (g[t - i] * p) / eggs_total
-        mos = mos * (1 - d) + f[t - eta_m]
+                f[time_now - i] = g[time_now - i] - (g[time_now - i] * p) / eggs_total
+
+        mos = mos * (1 - d) + f[time_now - eta_m]
         m = mos / hum
 
         tm = time_now - tau_m
