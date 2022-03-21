@@ -1,41 +1,43 @@
-from math import ceil
+from malariaModels.AndersonAndMayModel import anderson_and_may_model
+import matplotlib.pyplot as plt
 
-import numpy as np
+from malariaModels.ArnonModel import arnon_model
 
-def arnon_model(m_params, t):
-    d, eta_m, eta_p, n_m, s, c_s, mos, hum = m_params
-    c_total = s * c_s
-    k = np.zeros((eta_p,), dtype=int)
-    k[0] = n_m
-    f = []
-    eggs_total = 0
+t = 250
+a, b, c, r, mu1, mu2, tau_m, tau_h = 0.2, 0.5, 0.5, 0.01, 0.017, 0.12, 10, 21
+params = a, b, c, r, mu1, mu2, tau_m, tau_h
 
-    for time_now in range(t):
-        next_g = k[(time_now % eta_p)] * ceil(mos * (1 - d))
-        g = f.copy()
-        g.append(next_g)
-        if time_now - eta_m - 1 >= 0:
-            eggs_total = sum(g[time_now - eta_m - 1:])
-        else:
-            eggs_total = sum(g)
-        print("befor"+str(eggs_total))
-        p = eggs_total - c_total
-        f.append(next_g)
-        if p > 0:
-            for i in range(eta_m):
-                f[time_now - i] = g[time_now - i] - ceil((g[time_now - i] * p) / eggs_total)
-
-        mos = ceil(mos * (1 - d))
-        if time_now - eta_m >= 0:
-            mos += f[time_now - eta_m]
-        if time_now - eta_m - 1 >= 0:
-            eggs_total = sum(f[time_now - eta_m - 1:])
-        else:
-            eggs_total = sum(f)
-        print("after"+str(eggs_total))
-        # print(f"{time_now}: {mos}")
-        # print(str(time_now)+": " + str(mos))
+d, eta_m, eta_p, n_m, s, c_s, mos, hum = 0.05, 12, 4, 3, 100, 300, 5000, 100
+m_params = d, eta_m, eta_p, n_m, s, c_s, mos, hum
+init_val = 0, 0.0015, 0, 0
+AR = arnon_model(init_val, params, m_params, t)
 
 
-params_m = 0.05, 12, 4, 3, 100, 300, 2000, 100
-arnon_model(params_m, 100)
+AM_Eh = []
+AM_Ih = []
+AM_Em = []
+AM_Im = []
+for i in AR:
+    AM_Eh.append(i[0])
+    AM_Ih.append(i[1])
+    AM_Em.append(i[2])
+    AM_Im.append(i[3])
+
+plt.plot(AM_Eh, 'b', label='AM Eh')
+plt.plot(AM_Ih, 'g', label='AM Ih')
+plt.plot(AM_Em, '--b', label='AM Em')
+plt.plot(AM_Im, '--g', label='AM Im')
+
+plt.legend()
+# naming the x axis
+plt.xlabel('time')
+# naming the y axis
+plt.ylabel('Prediction')
+
+# giving a title to my graph
+plt.title('Arnon model')
+
+# function to show the plot
+plt.show()
+
+
