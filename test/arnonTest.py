@@ -13,20 +13,20 @@ init_val = 0, 0.0015, 0, 0
 AR = arnon_model(init_val, params, m_params, t)
 
 
-AM_Eh = []
-AM_Ih = []
-AM_Em = []
-AM_Im = []
+AR_Eh = []
+AR_Ih = []
+AR_Em = []
+AR_Im = []
 for i in AR:
-    AM_Eh.append(i[0])
-    AM_Ih.append(i[1])
-    AM_Em.append(i[2])
-    AM_Im.append(i[3])
+    AR_Eh.append(i[0])
+    AR_Ih.append(i[1])
+    AR_Em.append(i[2])
+    AR_Im.append(i[3])
 
-plt.plot(AM_Eh, 'b', label='AM Eh')
-plt.plot(AM_Ih, 'g', label='AM Ih')
-plt.plot(AM_Em, '--b', label='AM Em')
-plt.plot(AM_Im, '--g', label='AM Im')
+plt.plot(AR_Eh, 'b', label='AM Eh')
+plt.plot(AR_Ih, 'g', label='AM Ih')
+plt.plot(AR_Em, '--b', label='AM Em')
+plt.plot(AR_Im, '--g', label='AM Im')
 
 plt.legend()
 # naming the x axis
