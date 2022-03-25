@@ -1,22 +1,21 @@
-
 from matplotlib import pyplot as plt
-from malariaModels.ArnonModel import get_m_array, smoothing
+from malariaModels.ArnonModel import smoothing, total_eggs
 
 params_m = 0.05, 12, 4, 3, 100, 300, 2000, 100
-t = 250
-m = get_m_array(params_m, t)
-r = smoothing(m, 0.25)
+t = 145
+tot = total_eggs(params_m, t)
+r = smoothing(tot, 0.3)
 
-plt.plot(m)
+plt.plot(tot)
 plt.plot(r)  # some noise removed
 plt.legend()
 # naming the x axis
 plt.xlabel('time')
 # naming the y axis
-plt.ylabel('Prediction')
+plt.ylabel('number of eggs')
 
 # giving a title to my graph
-plt.title('m parameter')
+plt.title('f parameter')
 
 # function to show the plot
 plt.show()

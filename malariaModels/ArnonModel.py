@@ -11,7 +11,7 @@ def arnon_model(init_vals, params, m_params, t):
     Im = [Im_0]
 
     m1 = get_m_array(m_params, t)
-    m_after_smoothing = smoothing(m1)
+    m_after_smoothing = smoothing(m1, 0.25)
 
     a, b, c, r, mu1_year, mu2, tau_m, tau_h = params
     mu1_day = mu1_year / 365
@@ -62,14 +62,14 @@ def arnon_reproductive_number(params):
 
 
 def get_m_array(m_params, t):
-    d, eta_m, eta_p, n_m, s, c_s, mos, hum = m_params
+    mu2, eta_m, eta_p, n_m, s, c_s, mos, hum = m_params
     c_total = s * c_s
     k = np.zeros((eta_p,), dtype=int)
     k[0] = n_m
     f = []
     m = []
     for time_now in range(t):
-        next_g = k[(time_now % eta_p)] * ceil(mos * (1 - d))
+        next_g = k[(time_now % eta_p)] * ceil(mos * (1 - mu2))
         g = f.copy()
         g.append(next_g)
         if time_now - eta_m - 1 >= 0:
@@ -82,7 +82,7 @@ def get_m_array(m_params, t):
             for i in range(len(f)):
                 f[i] = g[i] - round(g[i] * (p / eggs_total))
 
-        mos = ceil(mos * (1 - d))
+        mos = ceil(mos * (1 - mu2))
         if time_now - eta_m >= 0:
             mos += f[time_now - eta_m]
             f[time_now - eta_m] = 0
@@ -90,9 +90,42 @@ def get_m_array(m_params, t):
         m.append(new_m)
     return m
 
-def smoothing(arr):
+
+def total_eggs(m_params, t):
+    mu2, eta_m, eta_p, n_m, s, c_s, mos, hum = m_params
+    c_total = s * c_s
+    k = np.zeros((eta_p,), dtype=int)
+    k[0] = n_m
+    num_of_eggs = []
+    f = []
+    for time_now in range(t):
+        next_g = k[(time_now % eta_p)] * ceil(mos * (1 - mu2))
+        g = f.copy()
+        g.append(next_g)
+        if time_now - eta_m - 1 >= 0:
+            eggs_total = sum(g[time_now - eta_m - 1:])
+        else:
+            eggs_total = sum(g)
+        next_egg = eggs_total
+        p = eggs_total - c_total
+        f.append(next_g)
+        if p > 0:
+            next_egg = c_total
+            for i in range(len(f)):
+                f[i] = g[i] - round(g[i] * (p / eggs_total))
+
+        mos = ceil(mos * (1 - mu2))
+        if time_now - eta_m >= 0:
+            mos += f[time_now - eta_m]
+            f[time_now - eta_m] = 0
+
+        num_of_eggs.append(next_egg)
+    return num_of_eggs
+
+
+def smoothing(arr, f=0.3):
     x = []
     for i in range(len(arr)):
         x.append(i)
-    new_arr = sm.nonparametric.lowess(arr, x, frac=0.3)[:, 1]
+    new_arr = sm.nonparametric.lowess(arr, x, frac=f)[:, 1]
     return np.round_(new_arr)

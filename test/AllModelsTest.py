@@ -5,7 +5,7 @@ from malariaModels.RossModel import ross_model
 import matplotlib.pyplot as plt
 
 t = 250
-a, b, c, m, r, mu1, mu2, tau_m, tau_h = 0.2, 0.5, 0.5, 20, 0.01, 0.017, 0.12, 10, 21
+a, b, c, m, r, mu1, mu2, tau_m, tau_h = 0.2, 0.5, 0.5, 20, 0.01, 0.017, 0.05, 10, 21
 d, eta_m, eta_p, n_m, s, c_s, mos, hum = 0.05, 12, 4, 3, 100, 300, 5000, 100
 
 # ====== Ross Model ======
@@ -43,7 +43,7 @@ for i in AM:
 
 # ====== Arnon Model ======
 params = a, b, c, r, mu1, mu2, tau_m, tau_h
-m_params = d, eta_m, eta_p, n_m, s, c_s, mos, hum
+m_params = mu2, eta_m, eta_p, n_m, s, c_s, mos, hum
 init_val = 0, 0.0015, 0, 0
 AR = arnon_model(init_val, params, m_params, t)
 
