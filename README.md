@@ -1,4 +1,7 @@
 <h1>Malaria prediction model</h1>
+
+-------------------
+
 <div height="300">
 <table>
 <tr align="left"><td>
