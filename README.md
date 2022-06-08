@@ -15,6 +15,48 @@ We collaborated with the ZzappMalaria company, the developer of a mobile-app and
 
 --------------------
 
+Malaria is a tropical infectious disease caused by Plasmodium parasites. There are at least five different species of the parasite, each of which may show differential sensitivity to drugs, and which have different drug-resistance profiles. It is one of the leading causes of death in the world, especially among children.
+
+--------------------
+
+<h2>Previous models</h2>
+
+<div align="center">
+
+| Previous models |
+| ------------- |
+| <p align="center"><img src="https://github.com/itay-rafee/Mathematical-Model-of-Malaria/blob/main/images/prev_models.png"/></p>  |
+ 
+ source: https://malariajournal.biomedcentral.com/articles/10.1186/1475-2875-10-202/tables/4
+  
+ </div>
+
+--------------------
+
+<h2>New model</h2>
+
+<div align="center">
+
+| New model |
+| ------------- |
+| <p align="center"><img src="https://github.com/itay-rafee/Mathematical-Model-of-Malaria/blob/main/images/model.png" width="95%"/></p>  |
+  
+ </div>
+
+--------------------
+
+<div align="center">
+
+| Plot No.1 | Plot No.2 |
+| ------------- | ------------- |
+| <p align="center"><img src="https://github.com/itay-rafee/Mathematical-Model-of-Malaria/blob/main/images/plot_1.png"/></p>  | <p align="center"><img src="https://github.com/itay-rafee/Mathematical-Model-of-Malaria/blob/main/images/plot_2.png"/></p>  |
+ 
+  
+ </div>
+
+--------------------
+
+
 <h3>Relevant links:</h3>   
 
 [ZZAPP Malaria Site](https://www.zzappmalaria.com/articles)   
