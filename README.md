@@ -19,6 +19,13 @@ Malaria is a tropical infectious disease caused by Plasmodium parasites. There a
 
 <h2>Previous models</h2>
 
+<b>Ross's model</b> gives an estimate of the variable I_m and I_h which represent the proportion of infected (humans and mosquitoes) to the whole population.   
+
+<b>McDonald's model</b> expands Ross's model and gives a more accurate estimate of both parameters, in addition it adds the E_m parameter that represents the rate of exposed mosquitoes.   
+
+<b>Anderson-May's model</b> expands the previous models and gives a more accurate estimate of the three parameters, in addition it adds the E_h parameter that represents the rate of exposed humans.
+
+
 <div align="center">
 
 | Previous models |
