@@ -25,7 +25,6 @@ Malaria is a tropical infectious disease caused by Plasmodium parasites. There a
 
 <b>Anderson-May's model</b> expands the previous models and gives a more accurate estimate of the three parameters, in addition it adds the E_h parameter that represents the rate of exposed humans.
 
-
 <div align="center">
 
 | Previous models |
@@ -39,6 +38,7 @@ Malaria is a tropical infectious disease caused by Plasmodium parasites. There a
 --------------------
 
 <h2>New model</h2>
+<b>Our algorithm predicts the m parameter that represents the ratio of mosquitoes to that of humans. That parameter has been fixed in previous models. It takes into account parameters such as the capacity of swamps in which they are laid, the duration of pregnancy, etc.. 
 
 <div align="center">
 
