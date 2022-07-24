@@ -32,7 +32,7 @@ plt.legend()
 # naming the x axis
 plt.xlabel('time')
 # naming the y axis
-plt.ylabel('Prediction')
+plt.ylabel('Prevalence')
 
 # giving a title to my graph
 plt.title('Arnon model')
