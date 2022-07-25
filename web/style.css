@@ -1,5 +1,5 @@
 h1, input::-webkit-input-placeholder, button {
-  font-family: "roboto", sans-serif;
+  font-family: "roboto","rubik" , sans-serif;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
@@ -12,8 +12,9 @@ h1 {
   align-items: center;
   justify-content: center;
   display: flex;
-  font-size: 18px;
-  background: #18aa8d;
+  font-size: 32px;
+  font-family: "rubik";
+  background: #3662a6;
   color: white;
   line-height: 150%;
   border-radius: 3px 3px 0 0;
@@ -39,35 +40,40 @@ input {
   display: block;
   border: none;
   padding: 10px 0;
-  border-bottom: solid 1px #1abc9c;
+  font-size: 14px;
+  border-bottom: solid 1px #3662a6;
   transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #1abc9c 4%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #3662a6 4%);
   background-position: -200px 0;
   background-size: 200px 100%;
   background-repeat: no-repeat;
-  color: #0e6252;
+  color: #ffffff;
+  font-size: 16px;
 }
 input:focus, input:valid {
   box-shadow: none;
   outline: none;
   background-position: 0 0;
+  font-size: 16px;
 }
 input:focus::-webkit-input-placeholder, input:valid::-webkit-input-placeholder {
-  color: #1abc9c;
   font-size: 11px;
   transform: translateY(-20px);
   visibility: visible !important;
+  font-size: 16px;
 }
 
 button {
   border: none;
-  background: #1abc9c;
+  background: #3662a6;
   cursor: pointer;
   border-radius: 3px;
+  font-size: 16px;
   padding: 6px;
   width: 200px;
+  height: 60px;
   color: white;
-  margin-left: 25px;
+  margin-left: 0px;
   box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
 }
 button:hover {
@@ -85,7 +91,7 @@ button:hover {
   white-space: nowrap;
   padding: 13px;
   box-sizing: border-box;
-  color: white;
+  color: black;
   transition: all 0.2s ease;
   font-family: Roboto, sans-serif;
   text-decoration: none;
