@@ -1,28 +1,29 @@
 from flask import Flask, render_template, request, redirect, Response
 import csv
+
 app = Flask(__name__)
-import numpy as np
-#import statsmodels.api as sm
+
 import io
 import base64
 from matplotlib import pyplot as plt
-from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
 from matplotlib.figure import Figure
-from PIL import Image, ImageDraw
 from malariaModels.AndersonAndMayModel import anderson_and_may_model
-#from malariaModels.ArnonModel import arnon_model
 from malariaModels.MacdonaldModel import macdonald_model
 from malariaModels.RossModel import ross_model
-#plt.rcParams["figure.figsize"] = [7.50, 3.50]
+
+# plt.rcParams["figure.figsize"] = [7.50, 3.50]
 plt.rcParams["figure.autolayout"] = True
+
 
 @app.route('/')
 def main_page():
     return render_template('index.html')
 
+
 @app.route('/index.html')
 def main_page2():
     return render_template('modal.html')
+
 
 ##################################
 
@@ -57,8 +58,8 @@ def main_page2():
 def plot_png(data):
     fig = Figure()
     t = 250
-    #a, b, c, m, r, mu1, mu2, tau_m, tau_h = 0.2, 0.5, 0.5, 20, 0.01, 0.017, 0.12, 10, 21
-    #d, eta_m, eta_p, n_m, s, c_s, mos, hum = 0.05, 12, 4, 3, 100, 300, 5000, 100
+    # a, b, c, m, r, mu1, mu2, tau_m, tau_h = 0.2, 0.5, 0.5, 20, 0.01, 0.017, 0.12, 10, 21
+    # d, eta_m, eta_p, n_m, s, c_s, mos, hum = 0.05, 12, 4, 3, 100, 300, 5000, 100
     a, b, c, m, r = float(data["a"]), float(data["b"]), float(data["c"]), int(data["m"]), float(data["r"])
     mu1, mu2, tau_m, tau_h = float(data["mu1"]), float(data["mu2"]), int(data["tau_m"]), int(data["tau_h"])
     d, eta_m, eta_p, n_m = float(data["d"]), int(data["eta_m"]), int(data["eta_p"]), int(data["n_m"])
@@ -141,15 +142,17 @@ def plot_png(data):
 
 @app.route('/submit_form', methods=['POST', 'GET'])
 def submit_form():
-	if request.method == 'POST':
-		data = request.form.to_dict()
-		print(data)
-		rend_image=plot_png(data).decode('utf-8')
-		return render_template('modal.html', rendered_image=rend_image)
-		#return plot_png()
+    if request.method == 'POST':
+        data = request.form.to_dict()
+        print(data)
+        rend_image = plot_png(data).decode('utf-8')
+        return render_template('modal.html', rendered_image=rend_image)
+
+
+# return plot_png()
 
 @app.route('/modal')
 def modal_page():
-	#print(plot_png2().width())
-	rend_image=plot_png().decode('utf-8')
-	return render_template('modal.html', rendered_image=rend_image)
+    # print(plot_png2().width())
+    rend_image = plot_png().decode('utf-8')
+    return render_template('modal.html', rendered_image=rend_image)
