@@ -108,3 +108,94 @@ button:hover {
 .follow:hover i {
   margin-right: 10px;
 }
+
+
+
+
+
+
+
+.placeholder
+{
+    position: relative;
+}
+
+.placeholder::after
+{
+    position: absolute;
+    left: 20px;
+    top: -20px;
+    content: attr(data-placeholder);
+    pointer-events: none;
+    opacity: 1.0;
+    color: #03A9F4;
+}
+
+
+
+/*.field {
+  position: relative;
+  padding-bottom: 1.875em;
+  margin-bottom: 1.875em;
+  max-width: 20em;
+}
+
+.field__label {
+  display: block;
+  position: absolute;
+  top: 1.25em;
+  font-size: 0.75em;
+  line-height: 1.25em;
+  font-weight: bold;
+  color: #2996cc;
+}
+
+.field__input {
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  font-size: 1em;
+  line-height: 1.25em;
+  padding: 0.3125em 0;
+  height: 1.875em;
+  width: 100%;
+  border: 0;
+  outline: none;
+  border-bottom: 0.125em solid #bbb;
+
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, #3662a6 4%);
+  width: 200px;
+  display: block;
+  border: none;
+  padding: 10px 0;
+  font-size: 14px;
+  border-bottom: solid 1px #3662a6;
+  transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  background-position: -200px 0;
+  background-size: 200px 100%;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  font-size: 16px;
+}
+.field__input:valid {
+  position: relative;
+  top: 1.875em;
+  margin-top: -1.875em;
+}
+.field__input:focus {
+  border-bottom-color: #2996cc;
+}
+
+body {
+  padding: 1.875em;
+}
+
+hr {
+  display: block;
+  clear: both;
+  margin: 1.875em 0;
+  border: 0;
+  outline: 0;
+  height: 2px;
+  background: #ddd;
+}*/
