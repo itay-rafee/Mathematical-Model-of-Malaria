@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Mathematical Model Of Malaria</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+<link rel="stylesheet" href="static/style.css">
+<link rel="icon" href="data:;base64,=">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" href="static/style.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+
+<style> 
+body {
+  background-image: url("static/bg.jpg");
+  background-color: #ffffff;
+  ackground-size:cover;
+  background-repeat:no-repeat;
+  background-size:100%;
+}
+</style>
+
+<body>
+
+<h1 style="text-align: center;">Mathematical Model Of Malaria</h1>
+<table style="height: 86px; width: 10px; border-collapse: collapse; margin-left: auto; margin-right: auto;" border="0">
+<form action="submit_form" method="post" autocomplete="off">
+<tbody>
+<tr style="height: 86px;">
+<td style="width: 107px; height: 61px;">
+<p style="text-align: center;"><input role="presentation" autocomplete="off" value="0.2" id="a" maxlength="8" name="a" required="" size="10" type="number" placeholder="a" /></p>
+<p style="text-align: center;"><input role="presentation" autocomplete="off" value="0.5" id="b" maxlength="8" name="b" required="" size="10" type="number" placeholder="b" /></p>
+<p style="text-align: center;"><input role="presentation" autocomplete="off" value="0.5" id="c" maxlength="8" name="c" required="" size="10" type="number" placeholder="c" /></p>
+<p style="text-align: center;"><input role="presentation" autocomplete="off" value="20" id="m" maxlength="8" name="m" required="" size="10" type="number" placeholder="m" /></p>
+<p style="text-align: center;"><input role="presentation" autocomplete="off" value="0.01" id="r" maxlength="8" name="r" required="" size="10" type="number" placeholder="r" /></p>
+<p style="text-align: center;"><input role="presentation" autocomplete="off" value="0.017" id="mu1" maxlength="8" name="mu1" required="" size="10" type="number" placeholder="mu1" /></p>
+<p style="text-align: center;">&nbsp;</p>
+</td>
+<td style="width: 107px; height: 61px;">
+	<p style="text-align: center;"><input role="presentation" autocomplete="off" value="0.12" id="mu2" maxlength="8" name="mu2" required="" size="10" type="number" placeholder="mu2" /></p>
+<p style="text-align: center;"><input role="presentation" autocomplete="off" value="10" id="tau_m" maxlength="8" name="tau_m" required="" size="10" type="number" placeholder="tau_m" /></p>
+<p style="text-align: center;"><input role="presentation" autocomplete="off" value="21" id="tau_h" maxlength="8" name="tau_h" required="" size="10" type="number" placeholder="tau_h" /></p>
+<p style="text-align: center;"><input role="presentation" autocomplete="off" value="0.05" id="d" maxlength="8" name="d" required="" size="10" type="number" placeholder="d" /></p>
+<p style="text-align: center;"><input role="presentation" autocomplete="off" value="12" id="eta_m" maxlength="8" name="eta_m" required="" size="10" type="number" placeholder="eta_m" /></p>
+<p style="text-align: center;"><input role="presentation" autocomplete="off" value="4" id="eta_p" maxlength="8" name="eta_p" required="" size="10" type="number" placeholder="eta_p" /></p>
+<p style="text-align: center;">&nbsp;</p>
+</td>
+<td style="width: 107px; height: 61px;">
+<p style="text-align: center;"><input role="presentation" autocomplete="off" value="3" id="n_m" maxlength="8" name="n_m" required="" size="10" type="number" placeholder="n_m" /></p>
+<p style="text-align: center;"><input role="presentation" autocomplete="off" value="100" id="s" maxlength="8" name="s" required="" size="10" type="number" placeholder="s" /></p>
+<p style="text-align: center;"><input role="presentation" autocomplete="off" value="300" id="c_s" maxlength="8" name="c_s" required="" size="10" type="number" placeholder="c_s" /></p>
+<p style="text-align: center;"><input role="presentation" autocomplete="off" value="5000" id="mos" maxlength="8" name="mos" required="" size="10" type="number" placeholder="mos" /></p>
+<p style="text-align: center;"><input role="presentation" autocomplete="off" value="100" id="hum" maxlength="8" name="hum" required="" size="10" type="number" placeholder="hum" /></p>
+<p style="text-align: center;">&nbsp;</p>
+</td>
+</tr>
+<tr style="height: 49px;">
+<td style="width: 107px; height: 49px;">
+<p style="text-align: center;">&nbsp;</p>
+</td>
+<td style="width: 107px; height: 49px;">
+<p style="text-align: center;"><button data-toggle="modal" data-target="#exampleModalCenter" type="submit">Calculation</button></p>
+</td>
+<td style="width: 107px; height: 49px;">
+<p style="text-align: center;">&nbsp;</p>
+</td>
+</tr>
+</tbody>
+</form>
+</table>
+<p style="text-align: center;">&nbsp;</p>
+<p style="text-align: center;">&nbsp;</p>
+<!-- partial -->
+<p style="text-align: center;">&nbsp;</p>
+<!-- partial -->
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<link href='https://fonts.googleapis.com/css?family=Roboto:400' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Rubik:400' rel='stylesheet' type='text/css'>
+<!-- partial -->
+
+{% block modal %}{% endblock %}
+</body>
+{% block script %}{% endblock %}
+</html>

@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+{% block modal %}
+<!-- Modal -->
+<div align="center" class="modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	<!-- style="margin: 0; position: absolute; top: 40%; -ms-transform: translateY(-50%); transform: translateY(-50%);" -->
+  <div style="width: 50%; display:block;" align="center" role="document">
+  	<!-- class="modal-dialog modal-dialog-centered" style="width: 900px;" -->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div style="display:block;" class="modal-body">
+      	<img style="display:block;" id="picture" src="data:image/png;base64,{{ rendered_image }}">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block script %}
+<script>
+$(document).ready(function(){
+	console.log("window is loaded")
+	$("#exampleModalCenter").modal("show")
+})
+</script>
+{% endblock %}
