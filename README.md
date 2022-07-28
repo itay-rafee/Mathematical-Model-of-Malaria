@@ -15,6 +15,8 @@ The goal of the project is to implement standard prediction models for malaria, 
 
 Malaria is a tropical infectious disease caused by Plasmodium parasites. There are at least five different species of the parasite, each of which may show differential sensitivity to drugs, and which have different drug-resistance profiles. It is one of the leading causes of death in the world, especially among children.
 
+Our interactive website for comparing the models <a href="http://itayrafee.pythonanywhere.com/">HERE</a>.
+
 --------------------
 
 <h2>Previous models</h2>
